@@ -1,11 +1,14 @@
 :root {
-  --ink: #1c2b33;
+  --ink: #0f172a;
   --paper: #ffffff;
-  --soft: #f4f6f8;
-  --accent: #0b5394;
+  --soft: #f1f5f9;
+  --accent: #0f766e;
+  --accent-2: #4338ca;
   --accent-ink: #ffffff;
-  --line: #c9d2d9;
+  --line: #e2e8f0;
   --focus: #b35c00;
+  --shadow: 0 1px 3px rgb(15 23 42 / 0.08), 0 8px 24px rgb(15 23 42 / 0.08);
+  --radius: 12px;
 }
 
 * {
@@ -14,9 +17,9 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--ink);
   background: var(--paper);
 }
@@ -44,24 +47,33 @@ a {
 }
 
 .hero {
-  padding: 2.5rem 1.25rem 2rem;
-  background: var(--soft);
-  border-bottom: 1px solid var(--line);
+  padding: 3.5rem 1.25rem 3rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--accent-ink);
 }
 
 .eyebrow {
-  margin: 0 0 0.25rem;
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.25rem 0.85rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 0.8rem;
-  color: var(--accent);
+  font-size: 0.75rem;
+  color: var(--accent-ink);
+  background: rgb(255 255 255 / 0.14);
+  border-radius: 999px;
 }
 
 .hero h1 {
   margin: 0 0 1rem;
-  font-size: clamp(1.6rem, 4vw + 1rem, 2.6rem);
-  line-height: 1.2;
+  font-size: clamp(1.7rem, 4vw + 1rem, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.hero .lede {
+  color: rgb(255 255 255 / 0.92);
 }
 
 .lede {
@@ -70,17 +82,19 @@ a {
 
 .button {
   display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background: var(--accent);
-  color: var(--accent-ink);
-  border-radius: 4px;
+  margin-top: 0.75rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--paper);
+  color: var(--accent);
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .button:hover {
-  background: #083d6d;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
 }
 
 main {
@@ -90,12 +104,13 @@ main {
 }
 
 section {
-  padding: 1.5rem 0;
+  padding: 2rem 0;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.25;
+  letter-spacing: -0.02em;
   margin: 0 0 0.75rem;
 }
 
@@ -110,18 +125,26 @@ h3 {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .zone-grid li {
   border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 0.9rem 1rem;
-  background: var(--soft);
+  border-top: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.zone-grid li:hover {
+  transform: translateY(-2px);
 }
 
 .zone-grid p {
   margin: 0;
+  color: #334155;
 }
 
 .setup-list {
@@ -135,7 +158,7 @@ h3 {
   counter-increment: setup;
   position: relative;
   padding-left: 2.8rem;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.25rem;
 }
 
 .setup-list li::before {
@@ -146,7 +169,7 @@ h3 {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: var(--accent-ink);
   font-weight: 700;
   display: flex;
@@ -161,14 +184,16 @@ h3 {
 .advisor {
   background: var(--soft);
   border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem;
+  box-shadow: var(--shadow);
 }
 
 footer {
   border-top: 1px solid var(--line);
-  padding: 1rem 1.25rem 2rem;
+  padding: 1.25rem 1.25rem 2.25rem;
   font-size: 0.9rem;
+  color: #475569;
 }
 
 @media (min-width: 48rem) {
